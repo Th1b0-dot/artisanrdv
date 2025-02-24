@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ArtisanRDV - Résultats de recherche</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <h1>ArtisanRDV</h1>
+            <div class="header-buttons">
+                <button onclick="window.location.href='index.html'">Retour</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Résultats -->
+    <section id="results">
+        <h2>Artisans suggérés pour votre projet</h2>
+        <div id="artisan-list" class="artisan-list"></div>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 ArtisanRDV - Pour des travaux durables</p>
+    </footer>
+
+    <script>
+        // Récupérer les données du projet
+        const projectData = JSON.parse(sessionStorage.getItem('projectData') || '{}');
+        const artisanList = document.getElementById('artisan-list');
+
+        // Base de données simulée d'artisans avec plus de critères
+        const artisans = [
+            { name: 'Pierre Martin', specialty: 'Rénovation', eco: true, rating: '4.9/5', maxSurface: 200, keywords: ['isolation', 'énergie', 'plâtre'] },
+            { name: 'Sophie Durand', specialty: 'Rénovation', eco: false, rating: '4.7/5', maxSurface: 150, keywords: ['peinture', 'carrelage'] },
+            { name: 'Jean Dupont', specialty: 'Réparation, Plomberie', eco: false, rating: '4.8/5', maxSurface: 50, keywords: ['fuite', 'urgence', 'tuyau'] },
+            { name: 'Marc Lemoine', specialty: 'Construction, Maçonnerie', eco: false, rating: '4.6/5', maxSurface: 500, keywords: ['béton', 'mur', 'fondation'] },
+            { name: 'Lucie Renault', specialty: 'Électricité', eco: true, rating: '4.9/5', maxSurface: 100, keywords: ['panne', 'éco', 'câblage'] }
+        ];
+
+        // IA simulée : filtrage basé sur plusieurs critères
+        const filteredArtisans = artisans.filter(artisan => {
+            let matchScore = 0;
+
+            // Critère 1 : Localisation (simulée ici, toujours vrai pour la démo)
+            matchScore += 1;
+
+            // Critère 2 : Type de travaux
+            if (projectData.type !== 'non précisé' && artisan.specialty.toLowerCase().includes(projectData.type.toLowerCase())) {
+                matchScore += 3;
+            }
+
+            // Critère 3 : Surface
+            const surface = parseInt(projectData.surface) || 0;
+            if (surface > 0 && surface <= artisan.maxSurface) {
+                matchScore += 2;
+            }
+
+            // Critère 4 : Mots-clés dans les détails
+            const detailsLower = projectData.details.toLowerCase();
+            artisan.keywords.forEach(keyword => {
+                if (detailsLower.includes(keyword)) {
+                    matchScore += 1;
+                }
+            });
+
+            // Critère 5 : Préférence écologique (si "éco" ou "durable" dans détails)
+            if ((detailsLower.includes('éco') || detailsLower.includes('durable')) && artisan.eco) {
+                matchScore += 2;
+            }
+
+            // Retourner l'artisan si le score est suffisant (minimum 1 pour localisation)
+            return matchScore >= 1;
+        }).sort((a, b) => {
+            // Trier par pertinence (score simulé basé sur les critères)
+            const scoreA = (projectData.type !== 'non précisé' && a.specialty.includes(projectData.type) ? 3 : 0) + (a.eco ? 2 : 0);
+            const scoreB = (projectData.type !== 'non précisé' && b.specialty.includes(projectData.type) ? 3 : 0) + (b.eco ? 2 : 0);
+            return scoreB - scoreA;
+        });
+
+        // Afficher les artisans
+        if (filteredArtisans.length > 0) {
+            filteredArtisans.forEach(artisan => {
+                const card = document.createElement('div');
+                card.className = 'artisan-card';
+                card.innerHTML = `
+                    <h3>${artisan.name}</h3>
+                    <p>Spécialité : ${artisan.specialty}${artisan.eco ? ' (Éco-certifié)' : ''}</p>
+                    <p>Note : ${artisan.rating}</p>
+                    <button onclick="alert('Réservation simulée pour ${artisan.name}')">Contacter</button>
+                `;
+                artisanList.appendChild(card);
+            });
+        } else {
+            artisanList.innerHTML = '<p>Aucun artisan trouvé pour ce projet. Essayez d’ajouter plus de détails !</p>';
+        }
+    </script>
+</body>
+</html>
