@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Batimatch - Inscription artisan</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- En-tête -->
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <img src="https://via.placeholder.com/40?text=B" alt="Batimatch Logo">
+                <h1>Batimatch</h1>
+            </div>
+            <div class="header-buttons">
+                <button onclick="window.location.href='index.html'">Retour</button>
+                <a href="blog.html" class="nav-link">Blog</a>
+                <a href="faq.html" class="nav-link">FAQ</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Formulaire d'inscription -->
+    <section id="signup">
+        <h2>Inscription artisan</h2>
+        <form id="artisan-form">
+            <label for="identity">Identité (Carte d’identité ou passeport) :</label>
+            <input type="file" id="identity" accept=".pdf,.jpg,.png" required>
+
+            <label for="address-proof">Justificatif d’adresse (Relevé bancaire, facture, etc.) :</label>
+            <input type="file" id="address-proof" accept=".pdf,.jpg,.png" required>
+
+            <label for="siret">Numéro SIRET/SIREN :</label>
+            <input type="text" id="siret" placeholder="Entrez votre numéro SIRET/SIREN" required>
+
+            <label for="qualifications">Qualifications professionnelles (Diplômes, certifications) :</label>
+            <input type="file" id="qualifications" accept=".pdf,.jpg,.png" multiple required>
+
+            <label for="insurance">Assurance responsabilité civile professionnelle :</label>
+            <input type="file" id="insurance" accept=".pdf,.jpg,.png">
+
+            <label for="profile-pic">Photo de profil (optionnelle) :</label>
+            <input type="file" id="profile-pic" accept=".jpg,.png">
+
+            <div id="terms">
+                <input type="checkbox" id="terms-accept" required>
+                <label for="terms-accept">J’accepte les <a href="cgu.html">conditions d’utilisation</a> et la <a href="#">politique de confidentialité</a>.</label>
+            </div>
+
+            <button type="submit">Soumettre ma candidature</button>
+        </form>
+    </section>
+
+    <!-- Pied de page -->
+    <footer>
+        <p>© 2025 Batimatch - Pour des travaux durables</p>
+        <div class="footer-links">
+            <a href="blog.html">Blog</a>
+            <a href="faq.html">FAQ</a>
+            <a href="cgu.html">Conditions Générales</a>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('artisan-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Candidature soumise avec succès ! (Simulation)');
+        });
+    </script>
+</body>
+</html>
