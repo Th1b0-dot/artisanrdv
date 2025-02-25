@@ -4,18 +4,21 @@ body {
     font-family: 'Open Sans', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f5f5f5;
+    background: linear-gradient(135deg, #f5f5f5 0%, #ffffff 100%);
     color: #333;
 }
 
 header {
-    background-color: rgba(52, 152, 219, 0.9);
+    background: linear-gradient(90deg, #3498db 0%, #6ab0f3 100%);
     color: white;
-    padding: 20px;
+    padding: 25px;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 10;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 .header-content {
@@ -29,27 +32,45 @@ header {
 header h1 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.8em;
+    font-size: 2em;
     margin: 0;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .header-buttons button {
-    background-color: #fff;
+    background: linear-gradient(90deg, #ffffff 0%, #f0f0f0 100%);
     color: #3498db;
-    padding: 10px 20px;
+    padding: 12px 25px;
     border: none;
-    border-radius: 5px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-.header-buttons .artisan-link {
-    color: #e67e22;
-    margin-left: 20px;
-    text-decoration: none;
+.header-buttons button:hover {
+    transform: translateY(-2px);
+}
+
+.header-buttons .artisan-btn {
+    background: linear-gradient(90deg, #e67e22 0%, #f39c12 100%);
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.header-buttons .artisan-btn:hover {
+    transform: translateY(-2px);
 }
 
 #hero {
-    height: 100vh;
+    min-height: 100vh; /* Changé en min-height pour éviter l'écrasement */
     background: url('https://via.placeholder.com/1920x1080?text=Artisan+éco') no-repeat center/cover;
     display: flex;
     align-items: center;
@@ -57,6 +78,7 @@ header h1 {
     text-align: center;
     color: white;
     position: relative;
+    padding-top: 100px; /* Ajouté pour éviter le chevauchement avec l’en-tête */
 }
 
 #hero::before {
@@ -66,237 +88,313 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.4);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.2) 100%);
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
 
 .hero-content {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
+    padding: 20px;
 }
 
 #hero h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 3em;
-    margin: 0 0 10px;
+    font-size: 3.5em;
+    margin: 0 0 15px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #hero p {
-    font-size: 1.2em;
-    margin: 0 0 20px;
+    font-size: 1.3em;
+    margin: 0 0 25px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 }
 
 .search-bar {
     display: flex;
-    gap: 10px;
-    background: white;
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 20px;
+    gap: 15px;
+    background: linear-gradient(90deg, #ffffff 0%, #f0f0f0 100%);
+    padding: 15px;
+    border-radius: 30px;
+    margin-bottom: 25px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .search-bar input, .search-bar select {
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 3px;
+    border-radius: 20px;
+    font-size: 1em;
+    background: #fff;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
 }
 
 .search-bar button {
-    background-color: #3498db;
+    background: linear-gradient(90deg, #3498db 0%, #6ab0f3 100%);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.search-bar button:hover {
+    transform: translateY(-2px);
 }
 
 .project-description {
-    background: rgba(255, 255, 255, 0.9);
-    padding: 20px;
-    border-radius: 5px;
-    max-width: 600px;
+    background: linear-gradient(135deg, rgba(255, 255, 255, 0.95) 0%, rgba(240, 240, 240, 0.9) 100%);
+    padding: 25px;
+    border-radius: 20px;
+    max-width: 650px;
     margin: 0 auto;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
 }
 
 .project-description h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.5em;
-    margin: 0 0 15px;
+    font-size: 1.8em;
+    margin: 0 0 20px;
     color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 #project-form {
     display: flex;
     flex-direction: column;
-    gap: 10px;
+    gap: 15px;
 }
 
 #project-form input, #project-form select, #project-form textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 3px;
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
     font-size: 1em;
+    background: #fff;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+#project-form input:focus, #project-form select:focus, #project-form textarea:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    outline: none;
 }
 
 #project-form textarea {
-    height: 100px;
+    height: 120px;
     resize: vertical;
 }
 
 #project-form button {
-    background-color: #27ae60;
+    background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
     color: white;
     border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
+    padding: 12px 25px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
 #project-form button:hover {
-    background-color: #219653;
+    transform: translateY(-2px);
 }
 
 #benefits {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    padding: 60px 20px;
-    background-color: #fff;
+    gap: 50px;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
     max-width: 1200px;
     margin: 0 auto;
+    border-radius: 20px;
 }
 
 .benefit {
     text-align: center;
-    width: 300px;
+    width: 320px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.benefit:hover {
+    transform: translateY(-5px);
 }
 
 .benefit .icon {
-    font-size: 2em;
-    margin-bottom: 15px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #3498db;
 }
 
 .benefit h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.3em;
+    font-size: 1.5em;
+    margin: 0 0 15px;
 }
 
 #stats {
-    background-color: #e8f5e9;
-    padding: 60px 20px;
+    background: linear-gradient(135deg, #e8f5e9 0%, #f0fff0 100%);
+    padding: 80px 20px;
     text-align: center;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
 #stats h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #27ae60;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .stats-container {
     display: flex;
     justify-content: center;
-    gap: 40px;
-    max-width: 1200px;
-    margin: 0 auto;
+    gap: 50px;
 }
 
 .stat {
     text-align: center;
-    width: 300px;
+    width: 320px;
+    padding: 25px;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.stat:hover {
+    transform: translateY(-5px);
 }
 
 .stat .icon {
-    font-size: 2em;
-    margin-bottom: 15px;
+    font-size: 2.5em;
+    margin-bottom: 20px;
+    color: #27ae60;
 }
 
 .stat p strong {
-    font-size: 2em;
+    font-size: 2.2em;
     color: #27ae60;
 }
 
 #how-it-works {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border-radius: 20px;
 }
 
 #how-it-works h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .steps {
     display: flex;
-    gap: 30px;
+    gap: 40px;
     justify-content: center;
 }
 
 .step {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 200px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 240px;
+    transition: transform 0.3s;
+}
+
+.step:hover {
+    transform: translateY(-5px);
 }
 
 .step .icon {
-    font-size: 1.5em;
-    margin-bottom: 10px;
+    font-size: 2em;
+    margin-bottom: 15px;
+    color: #3498db;
 }
 
 #reviews {
-    padding: 60px 20px;
-    background-color: #fff;
+    padding: 80px 20px;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
     text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
+    border-radius: 20px;
 }
 
 #reviews h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .reviews-container {
     display: flex;
     justify-content: center;
-    gap: 30px;
+    gap: 40px;
     flex-wrap: wrap;
 }
 
 .review {
-    background-color: #f5f5f5;
-    padding: 20px;
-    border-radius: 5px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    width: 320px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.review:hover {
+    transform: translateY(-5px);
 }
 
 .review p {
     font-style: italic;
-    margin: 0 0 10px;
+    margin: 0 0 15px;
+    color: #555;
 }
 
 .review span {
     font-size: 0.9em;
-    color: #666;
+    color: #888;
 }
 
 #cta {
-    padding: 60px 20px;
+    padding: 80px 20px;
     text-align: center;
-    background: url('https://via.placeholder.com/1920x300?text=Artisan+au+travail') no-repeat center/cover;
+    background: linear-gradient(135deg, #3498db 0%, #6ab0f3 100%);
     position: relative;
+    border-radius: 20px;
+    margin: 20px auto;
+    max-width: 1200px;
 }
 
 #cta::before {
@@ -306,12 +404,13 @@ header h1 {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    background: linear-gradient(135deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0.1) 100%);
+    border-radius: 20px;
 }
 
 .cta-content {
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin: 0 auto;
     color: white;
 }
@@ -319,78 +418,211 @@ header h1 {
 #cta h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 20px;
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 #cta button {
-    background-color: #3498db;
-    color: white;
-    padding: 15px 30px;
+    background: linear-gradient(90deg, #ffffff 0%, #f0f0f0 100%);
+    color: #3498db;
+    padding: 15px 35px;
     border: none;
-    border-radius: 5px;
-    font-size: 1.2em;
+    border-radius: 30px;
+    font-size: 1.3em;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
-.artisan-link {
-    color: #e67e22;
-    text-decoration: none;
+#cta button:hover {
+    transform: translateY(-3px);
+}
+
+.cta-content .artisan-btn {
+    background: linear-gradient(90deg, #e67e22 0%, #f39c12 100%);
+    color: black;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.cta-content .artisan-btn:hover {
+    transform: translateY(-2px);
 }
 
 footer {
-    background-color: #3498db;
+    background: linear-gradient(90deg, #3498db 0%, #6ab0f3 100%);
     color: white;
     text-align: center;
-    padding: 20px;
+    padding: 25px;
+    border-top-left-radius: 20px;
+    border-top-right-radius: 20px;
+    box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #results {
-    padding: 80px 20px 60px;
+    padding: 100px 20px 80px;
     text-align: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border-radius: 20px;
 }
 
 #results h2 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 2em;
-    margin-bottom: 30px;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .artisan-list {
     display: flex;
     flex-wrap: wrap;
-    gap: 20px;
+    gap: 40px;
     justify-content: center;
 }
 
 .artisan-card {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    width: 300px;
+    background: #fff;
+    padding: 25px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    width: 320px;
     text-align: left;
+    transition: transform 0.3s;
+}
+
+.artisan-card:hover {
+    transform: translateY(-5px);
 }
 
 .artisan-card h3 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
-    font-size: 1.3em;
-    margin: 0 0 10px;
+    font-size: 1.5em;
+    margin: 0 0 15px;
 }
 
 .artisan-card button {
-    background-color: #3498db;
+    background: linear-gradient(90deg, #3498db 0%, #6ab0f3 100%);
     color: white;
     border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
+    padding: 10px 20px;
+    border-radius: 25px;
     cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
 }
 
 .artisan-card button:hover {
-    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+#signup {
+    padding: 100px 20px 80px;
+    max-width: 900px;
+    margin: 20px auto;
+    background: linear-gradient(135deg, #ffffff 0%, #f0f0f0 100%);
+    border-radius: 20px;
+}
+
+#signup h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+    font-size: 2.2em;
+    margin-bottom: 40px;
+    text-align: center;
+    color: #333;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+#artisan-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    background: #fff;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
+
+#artisan-form label {
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #555;
+}
+
+#artisan-form input[type="text"],
+#artisan-form input[type="file"] {
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    transition: box-shadow 0.3s;
+}
+
+#artisan-form input[type="text"]:focus,
+#artisan-form input[type="file"]:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+#artisan-form textarea {
+    padding: 12px;
+    border: none;
+    border-radius: 15px;
+    background: #f0f0f0;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.05);
+    height: 120px;
+    resize: vertical;
+    transition: box-shadow 0.3s;
+}
+
+#artisan-form textarea:focus {
+    box-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+    outline: none;
+}
+
+#artisan-form button {
+    background: linear-gradient(90deg, #27ae60 0%, #2ecc71 100%);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+#artisan-form button:hover {
+    transform: translateY(-2px);
+}
+
+#terms {
+    margin-top: 15px;
+    font-size: 0.9em;
+    color: #666;
+    text-align: center;
+}
+
+#terms a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+#terms a:hover {
+    color: #6ab0f3;
 }
